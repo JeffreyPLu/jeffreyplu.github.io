@@ -26,6 +26,26 @@ img {
 	user-select: none;
 }
 
+/* Scrollbar */
+body::-webkit-scrollbar {
+	position: absolute;
+  width: 8px;
+}
+ 
+body::-webkit-scrollbar-track {
+  background-color: #dddddd;
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+	border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+	background-color: #888888;
+}
+
+
 /* Animated Underline */
 .underline {
 	display: block;
