@@ -6,11 +6,13 @@ const pages = Array.from(document.getElementsByTagName("page"))
 function setPage(index) {
 	for (const page of pages) {
 		page.classList.add("hidden")
-		page.classList.remove("active")
+	}
+	for (const link of links) {
+		link.classList.remove("active")
 	}
 	const currentPage = document.getElementById(links[index].innerText)
 	currentPage.classList.remove("hidden")
-	currentPage.classList.add("active")
+	links[index].classList.add("active")
 }
 
 function addEventListeners() {
