@@ -12,6 +12,10 @@
 	padding: 20px 30px;
 }
 
+.hidden {
+	display: none;
+}
+
 img {
 	image-rendering: -o-crisp-edges;
 	image-rendering: -webkit-optimize-contrast;
@@ -63,6 +67,10 @@ img {
 	color: #505050;
 	font-size: 16px;
 	--underline-color: #505050;
+}
+
+.nav .link.active {
+	font-weight: 700;
 }
 
 /* Header */

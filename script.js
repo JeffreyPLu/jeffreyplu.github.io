@@ -1,5 +1,29 @@
 // Header description
 // ---------------------
+const links = Array.from(document.getElementsByClassName("link"))
+const pages = Array.from(document.getElementsByTagName("page"))
+
+function setPage(index) {
+	for (const page of pages) {
+		page.classList.add("hidden")
+	}
+	document.getElementById(links[index].innerText).classList.remove("hidden")
+}
+
+function addEventListeners() {
+	for (let i = 0; i < links.length; i++) {
+		links[i].addEventListener("click", () => setPage(i))
+	}
+}
+
+addEventListeners()
+
+// ---------------------
+
+
+
+// Header description
+// ---------------------
 const descriptionElement = document.getElementById("descriptions")
 const descriptions = [
 	"Full Stack Web Developer",
@@ -54,6 +78,8 @@ function cycleDescriptions() {
 cycleDescriptions()
 
 // ---------------------
+
+
 
 // Logo Cloud
 // ---------------------
