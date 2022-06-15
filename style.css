@@ -7,6 +7,8 @@
 
 .main {
 	max-width: 900px;
+	/* 111px is the set height of the footer */
+	min-height: calc(100vh - 40px - 111px);
 	width: calc(100% - 60px);
 	margin: 0px auto;
 	padding: 20px 30px;
