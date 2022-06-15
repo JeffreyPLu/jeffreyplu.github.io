@@ -1,4 +1,4 @@
-// Header description
+// Pagination
 // ---------------------
 const links = Array.from(document.getElementsByClassName("link"))
 const pages = Array.from(document.getElementsByTagName("page"))
