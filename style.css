@@ -250,12 +250,12 @@ p {
 }
 
 .project-card a {
-	color: #1881F2;
+	color: #0D74E3;
 	font-weight: 700;
 	text-decoration: none;
 	font-size: 14px;
 	margin-bottom: 20px;
-	--underline-color: #1881F2;
+	--underline-color: #0D74E3;
 }
 
 .project-card .logos {
