@@ -157,7 +157,7 @@ body::-webkit-scrollbar-thumb:hover {
 	margin-bottom: 200px;
 }
 
-h4 {
+.section h3 {
 	font-size: 26px;
 	grid-area: title;
 	text-align: center;
@@ -231,14 +231,14 @@ p {
 	padding: 10px 15px;
 }
 
-.project-card h5 {
+.project-card h4 {
 	grid-area: title;
 	text-align: left;
 	font-weight: 700;
 	font-size: 22px;
 }
 
-.project-card h6 {
+.project-card h5 {
 	grid-area: time;
 	font-weight: 400;
 	font-size: 20px;
