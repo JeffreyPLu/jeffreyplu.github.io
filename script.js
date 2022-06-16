@@ -27,6 +27,28 @@ addEventListeners()
 
 
 
+// Optimized Animation
+// ---------------------
+function isVisible(element, page) {
+	// Note: This is optimized with the assumption that the element will always be within
+	//       the horizontal viewport bounds and only moves in and out of the vertical
+	//       viewport bounds.
+	const box = element.getBoundingClientRect()
+	return !document.getElementById(page).classList.contains("hidden") && (box.bottom >= 0) && (box.top <= window.innerHeight)
+}
+
+// setInterval but will only run if the specified element is visible
+function visibleInterval(callback, timeout, element, page) {
+	const checker = () => {
+		if (!isVisible(element, page)) return
+		callback()
+	}
+	let interval = setInterval(checker, timeout)
+}
+// ---------------------
+
+
+
 // Header description
 // ---------------------
 const descriptionElement = document.getElementById("descriptions")
@@ -77,7 +99,7 @@ function nextDescription() {
 }
 
 function cycleDescriptions() {
-	setInterval(nextDescription, 50)
+	visibleInterval(nextDescription, 50, descriptionElement, "HOME")
 }
 
 cycleDescriptions()
@@ -196,7 +218,7 @@ function animateLogos() {
 		placeLogos(points)
 	}
 
-	setInterval(frame, 1000/60)
+	visibleInterval(frame, 1000/60, cloud, "HOME")
 }
 
 document.onmousemove = mouseMove
