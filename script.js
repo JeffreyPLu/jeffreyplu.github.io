@@ -14,7 +14,7 @@ function animatedPageTransition(index) {
 	transitionDiv.classList.add("transition")
 	transitionDiv.classList.add("transition1")
 
-	// Handle transition stage 1 completion
+	// Handle animation completion
 	transitionDiv.addEventListener("animationend", () => {
 		if (stage == 1) {
 			transitionDiv.classList.remove("transition1")
