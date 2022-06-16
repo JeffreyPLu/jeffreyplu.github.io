@@ -5,6 +5,10 @@
 	font-family: 'Inter', sans-serif;
 }
 
+body {
+	position: relative;
+}
+
 .main {
 	max-width: 900px;
 	/* 111px is the set height of the footer */
@@ -24,6 +28,33 @@ img {
 	image-rendering: crisp-edges;
 	-ms-interpolation-mode: nearest-neighbor;
 	user-select: none;
+}
+
+/* Page transitions */
+@keyframes page-transition {
+	0% {
+		height: 0%;
+		top: 0%;
+	}
+
+	50% {
+		height: 100%;
+		top: 0%;
+	}
+
+	100% {
+		height: 0%;
+		top: 100%;
+	}
+}
+
+.transition {
+	position: absolute;
+	z-index: 999;
+	width: 100%;
+	height: 0%;
+	background-color: #eeeeee;
+	animation: page-transition 1s ease-in-out;
 }
 
 /* Scrollbar */
