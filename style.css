@@ -31,13 +31,20 @@ img {
 }
 
 /* Page transitions */
-@keyframes page-transition {
+@keyframes page-transition-1 {
 	0% {
 		height: 0%;
 		top: 0%;
 	}
 
-	50% {
+	100% {
+		height: 100%;
+		top: 0%;
+	}
+}
+
+@keyframes page-transition-2 {
+	0% {
 		height: 100%;
 		top: 0%;
 	}
@@ -54,7 +61,16 @@ img {
 	width: 100%;
 	height: 0%;
 	background-color: #eeeeee;
-	animation: page-transition 1s ease-in-out;
+	animation-duration: 0.35s;
+	animation-timing-function: ease-in-out;
+}
+
+.transition1 {
+	animation-name: page-transition-1;
+}
+
+.transition2 {
+	animation-name: page-transition-2;
 }
 
 /* Scrollbar */

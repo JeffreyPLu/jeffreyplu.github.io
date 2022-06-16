@@ -2,22 +2,53 @@
 // ---------------------
 const links = Array.from(document.getElementsByClassName("link"))
 const pages = Array.from(document.getElementsByTagName("page"))
+let currentPageIndex = 0
+
+function animatedPageTransition(index) {
+	const body = document.getElementsByTagName("body")[0]
+
+	let stage = 1
+	
+	// Create transition div
+	const transitionDiv = document.createElement("div")
+	transitionDiv.classList.add("transition")
+	transitionDiv.classList.add("transition1")
+
+	// Handle transition stage 1 completion
+	transitionDiv.addEventListener("animationend", () => {
+		if (stage == 1) {
+			transitionDiv.classList.remove("transition1")
+			transitionDiv.classList.add("transition2")
+			setPage(index)
+			stage = 2
+		} else if (stage == 2) {
+			transitionDiv.remove()
+		}
+	})
+
+	// Add transition div to body
+	body.append(transitionDiv)
+}
 
 function setPage(index) {
-	for (const page of pages) {
-		page.classList.add("hidden")
-	}
-	for (const link of links) {
-		link.classList.remove("active")
-	}
+	// Deactivate current page
+	pages[currentPageIndex].classList.add("hidden")
+	links[currentPageIndex].classList.remove("active")
+
+	// Activate the new page
 	const currentPage = document.getElementById(links[index].innerText)
 	currentPage.classList.remove("hidden")
 	links[index].classList.add("active")
+
+	currentPageIndex = index
 }
 
 function addEventListeners() {
 	for (let i = 0; i < links.length; i++) {
-		links[i].addEventListener("click", () => setPage(i))
+		links[i].addEventListener("click", () => {
+			if (i == currentPageIndex) return
+			animatedPageTransition(i)
+		})
 	}
 }
 
