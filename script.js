@@ -157,10 +157,17 @@ function placeLogos(points) {
 
 function rotatePoints(points, x, y, z) {
 	// Define 3x3 rotation matrix
+	const sx = sin(x)
+	const sy = sin(y)
+	const sz = sin(z)
+	const cx = cos(x)
+	const cy = cos(y)
+	const cz = cos(z)
+
 	const rotationMatrix = [
-		[cos(y)*cos(z), sin(x)*sin(y)*cos(z) - cos(x)*sin(z), cos(x)*sin(y)*cos(z) + sin(x)*sin(z)],
-		[cos(y)*sin(z), sin(x)*sin(y)*sin(z) + cos(x)*cos(z), cos(x)*sin(y)*sin(z) - sin(x)*cos(z)],
-		[-1*sin(y), sin(x)*cos(y), cos(x)*cos(y)]
+		[cy*cz, sx*sy*cz - cx*sz, cx*sy*cz + sx*sz],
+		[cy*sz, sx*sy*sz + cx*cz, cx*sy*sz - sx*cz],
+		[-1*sy, sx*cy, cx*cy]
 	]
 
 	// Computes the dot product of 2 vectors of size 3
