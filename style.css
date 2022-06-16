@@ -167,6 +167,55 @@ body::-webkit-scrollbar-thumb:hover {
 	font-weight: bold;
 }
 
+/* Scroll reminder */
+.invisible {
+	opacity: 0;
+}
+
+@keyframes pulse {
+	0% {
+		filter: brightness(100%);
+	}
+
+	100% {
+		filter: brightness(0%);
+	}
+}
+
+#scroll-reminder {
+	pointer-events: none;
+	position: fixed;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: grid;
+	grid-template-rows: repeat(2, min-content);
+	justify-items: center;
+	gap: 10px;
+	transition: 0.5s linear;
+	animation: pulse 1s linear 0s infinite alternate both;
+}
+
+#scroll-reminder .arrow {
+	width: 20px;
+	height: 20px;
+	transform: rotate(45deg);
+	border-bottom: solid #505050 4px;
+	border-right: solid #505050 4px;
+}
+
+#scroll-reminder p {
+	color: #505050;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/* 633px about the height that the skills header becomes visible */
+@media screen and (min-height: 640px) {
+	#scroll-reminder {
+		display: none;
+	}
+}
 
 /* Sections */
 .section {

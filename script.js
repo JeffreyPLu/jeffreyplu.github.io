@@ -1,3 +1,22 @@
+// Global
+const body = document.getElementsByTagName("body")[0]
+
+// Scroll Reminder
+// ---------------------
+const scrollReminder = document.getElementById("scroll-reminder")
+
+const deleteFunction1 = () => {
+	document.removeEventListener("scroll", deleteFunction1)
+	scrollReminder.classList.add("invisible")
+}
+const deleteFunction2 = () => {
+	body.removeEventListener("click", deleteFunction2)
+	scrollReminder.classList.add("invisible")
+}
+
+document.addEventListener("scroll", deleteFunction1)
+body.addEventListener("click", deleteFunction2)
+
 // Pagination
 // ---------------------
 const links = Array.from(document.getElementsByClassName("link"))
@@ -5,8 +24,6 @@ const pages = Array.from(document.getElementsByTagName("page"))
 let currentPageIndex = 0
 
 function animatedPageTransition(index) {
-	const body = document.getElementsByTagName("body")[0]
-
 	let stage = 1
 	
 	// Create transition div
