@@ -25,10 +25,6 @@ body {
 }
 
 img {
-	image-rendering: -o-crisp-edges;
-	image-rendering: -webkit-optimize-contrast;
-	image-rendering: crisp-edges;
-	-ms-interpolation-mode: nearest-neighbor;
 	user-select: none;
 }
 
@@ -342,6 +338,10 @@ p {
 	.project-card .logos img {
 		max-width: 40px;
 		max-height: 40px;
+		image-rendering: -o-crisp-edges;
+		image-rendering: -webkit-optimize-contrast;
+		image-rendering: crisp-edges;
+		-ms-interpolation-mode: nearest-neighbor;
 	}
 }
 
