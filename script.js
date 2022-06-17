@@ -86,12 +86,15 @@ function isVisible(element, page) {
 }
 
 // setInterval but will only run if the specified element is visible
-function visibleInterval(callback, timeout, element, page) {
-	const checker = () => {
-		if (!isVisible(element, page)) return
-		callback()
+function visibleInterval(callback, element, page, timeout) {
+	if (isVisible(element, page)) callback()
+	const self = () => visibleInterval(callback, element, page, timeout)
+	const requester = () => requestAnimationFrame(self)
+	if (timeout == 0) {
+		requester()
+	} else if (timeout > 0) {
+		setTimeout(requester, timeout)
 	}
-	let interval = setInterval(checker, timeout)
 }
 // ---------------------
 
@@ -147,7 +150,7 @@ function nextDescription() {
 }
 
 function cycleDescriptions() {
-	visibleInterval(nextDescription, 50, descriptionElement, "HOME")
+	visibleInterval(nextDescription, descriptionElement, "HOME", 50)
 }
 
 cycleDescriptions()
@@ -273,7 +276,7 @@ function animateLogos() {
 		placeLogos(points)
 	}
 
-	visibleInterval(frame, 1000/60, cloud, "HOME")
+	visibleInterval(frame, cloud, "HOME", 0)
 }
 
 document.onmousemove = (event) => {cursorMove(event.clientX, event.clientY)}
