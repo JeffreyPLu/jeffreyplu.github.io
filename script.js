@@ -246,12 +246,12 @@ function capRotation(rot) {
 	}
 }
 
-function mouseMove(event) {
+function cursorMove(x, y) {
 	const cloudX = cloud.getBoundingClientRect().x + cloud.clientWidth/2
 	const cloudY = cloud.getBoundingClientRect().y + cloud.clientHeight/2
 
-	xRot = capRotation(-1*MAX_ROT_SPEED*(event.clientX-cloudX)/(cloud.clientWidth))
-	yRot = capRotation(MAX_ROT_SPEED*(event.clientY-cloudY)/(cloud.clientHeight))
+	xRot = capRotation(-1*MAX_ROT_SPEED*(x-cloudX)/(cloud.clientWidth))
+	yRot = capRotation(MAX_ROT_SPEED*(y-cloudY)/(cloud.clientHeight))
 
 	// Limit actual rotation amount to set max speed
 	if (xRot**2 + yRot**2 > MAX_ROT_SPEED**2) {
@@ -276,7 +276,9 @@ function animateLogos() {
 	visibleInterval(frame, 1000/60, cloud, "HOME")
 }
 
-document.onmousemove = mouseMove
+document.onmousemove = (event) => {cursorMove(event.clientX, event.clientY)}
+
+document.ontouchstart = (event) => {cursorMove(event.changedTouches[0].clientX, event.changedTouches[0].clientY)}
 
 animateLogos()
 // ---------------------
