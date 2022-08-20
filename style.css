@@ -385,7 +385,7 @@ footer p {
 }
 
 .nope:hover::after {
-	content: "Nope";
+	content: "Not ready yet!";
 	position: absolute;
 	background-color: #DADADA;
 	border-radius: 5px;
