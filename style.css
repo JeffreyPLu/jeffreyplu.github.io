@@ -359,6 +359,7 @@ footer {
 	display: grid;
 	grid-template-areas: 
 		's1 a b c s2'
+		'message message message message message'
 		'copy copy copy copy copy';
 	grid-template-columns: 1fr repeat(3, 40px) 1fr;
 	column-gap: 30px;
@@ -372,7 +373,25 @@ footer img {
 	cursor: pointer;
 }
 
-footer p {
+footer .message {
+	display: grid;
+	grid-template-columns: repeat(2, max-content);
+	margin: auto;
+	gap: 20px;
+	grid-area: message;
+}
+
+footer a {
+	color: #3b3b3b;
+	font-weight: 700;
+	text-decoration: none;
+	font-size: 16px;
+	margin-bottom: 20px;
+	--underline-color: #3b3b3b;
+	margin: auto;
+}
+
+footer .copy {
 	grid-area: copy;
 	text-align: center;
 }
@@ -385,13 +404,14 @@ footer p {
 }
 
 .nope:hover::after {
-	content: "Not ready yet!";
+	content: "You thought";
 	position: absolute;
 	background-color: #DADADA;
 	border-radius: 5px;
 	left: 50%;
 	transform: translateY(calc((-40px - 100%)/2 - 5px)) translateX(-50%);
 	padding: 5px;
+	width: max-content;
 }
 
 /* Cloud */
