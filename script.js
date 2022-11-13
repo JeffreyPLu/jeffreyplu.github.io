@@ -207,7 +207,7 @@ function placeLogos(points) {
 }
 
 function rotatePoints(points, x, y, z) {
-	// Define 3x3 rotation matrix
+	// Precompute trigonometric values
 	const sx = sin(x)
 	const sy = sin(y)
 	const sz = sin(z)
@@ -215,6 +215,7 @@ function rotatePoints(points, x, y, z) {
 	const cy = cos(y)
 	const cz = cos(z)
 
+	// Define 3x3 rotation matrix
 	const rotationMatrix = [
 		[cy*cz, sx*sy*cz - cx*sz, cx*sy*cz + sx*sz],
 		[cy*sz, sx*sy*sz + cx*cz, cx*sy*sz - sx*cz],
