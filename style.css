@@ -404,7 +404,7 @@ footer .copy {
 }
 
 .nope:hover::after {
-	content: "You thought";
+	content: "Work in progress";
 	position: absolute;
 	background-color: #DADADA;
 	border-radius: 5px;
