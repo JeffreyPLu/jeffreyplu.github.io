@@ -243,13 +243,16 @@ p {
 	gap: 30px;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 900px) {
 	.skills {
 		grid-template-areas: 
 			'title'
 			'text'
 			'cloud';
 		grid-template-columns: auto;
+		max-width: 500px;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 
@@ -295,8 +298,10 @@ p {
 	transition: 0.15s ease;
 }
 
-.project-card:hover {
-	transform: translateY(-10px);
+@media screen and (min-width: 900px) and (hover: hover) and (pointer: fine) {
+	.project-card:hover {
+		transform: translateY(-10px);
+	}
 }
 
 .project-card h4 {
@@ -484,7 +489,6 @@ footer .copy {
 	.cloud .image-container:hover .tooltip-container .tooltip {
 		text-shadow: 0px 0px 3px #ffffff;
 	}
-
 }
 
 /* Temp styles */
